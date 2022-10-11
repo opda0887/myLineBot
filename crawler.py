@@ -20,7 +20,6 @@ def news_crawler():
                 content += "{}\n".format(title)
         else:
             break
-    content += "{}".format(url)
     return content
 
 print(news_crawler())
