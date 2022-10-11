@@ -11,12 +11,12 @@ def news_crawler():
     content = ""
 
     soup = BeautifulSoup(re.text, "html.parser")
-    data = soup.find_all("div", {"class": "b-list__tile"})
+    data = soup.find_all("p", {"class": "b-list__main__title"})
     
     for index, d in enumerate(data):
         if index <20:
-            if (d.p != None):
-                title = d.p.text
+            if (d != None):
+                title = d.text
                 content += "{}\n".format(title)
         else:
             break
