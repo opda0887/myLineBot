@@ -38,7 +38,7 @@ def handle_message(event):
     a = news_crawler()
     message = event.message.text
     if "搜尋" in message:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a+"\n"+"https://forum.gamer.com.tw/B.php?bsn=60076"))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a))
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
 
