@@ -13,5 +13,4 @@ oauth2client
 pyimgur 
 mpl_finance 
 arrow
-urllib
 fake-useragent
