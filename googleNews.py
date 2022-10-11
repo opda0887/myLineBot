@@ -2,14 +2,16 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def news_crawler():
+def GoogleNews_crawler():
     url = "https://news.google.com/topstories?hl=zh-TW&gl=TW&ceid=TW:zh-Hant"
     base = "https://news.google.com/articles/"
-    re   = requests.get(url)
+    response = requests.get(url)
 
     content = ""
 
-    soup = BeautifulSoup(re.text, "html.parser")
+    # 解析網頁原始碼
+    soup = BeautifulSoup(response.text, "html.parser")
+    # 找到標題資料
     data = soup.find_all("a", {"class": "DY5T1d RZIKme"})
     
     for index, d in enumerate(data):
@@ -23,4 +25,4 @@ def news_crawler():
             break
     return content
 
-print(news_crawler())
+print(GoogleNews_crawler())
