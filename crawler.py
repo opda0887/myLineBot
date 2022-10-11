@@ -13,11 +13,14 @@ def news_crawler():
     soup = BeautifulSoup(re.text, "html.parser")
     data = soup.find_all("div", {"class": "b-list__tile"})
     
-    for d in data:
-        if (d.p != None):
-            title = d.p.text
-            content += "{}\n".format(title)
-    content += url    
+    for index, d in enumerate(data):
+        if index <13:
+            if (d.p != None):
+                title = d.p.text
+                content += "{}\n".format(title)
+        else:
+            break
+    content += "{}".format(url)
     return content
 
 print(news_crawler())
