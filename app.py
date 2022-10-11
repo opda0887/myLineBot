@@ -6,7 +6,6 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-import re
 from crawler import *
 
 app = Flask(__name__)  
@@ -36,7 +35,7 @@ def callback():
 # send text
 @handler.add(MessageEvent, message=TextMessage) 
 def handle_message(event):
-    a = IBaha()
+    a = news_crawler()
     message = event.message.text
     if "新聞" in message:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a))
