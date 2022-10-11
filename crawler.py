@@ -1,23 +1,23 @@
 import requests
 from bs4 import BeautifulSoup
+from fake_useragent import UserAgent
 
 
 def news_crawler():
-    base = "https://news.cnyes.com"
-    url  = "https://news.cnyes.com/news/cat/headline"
-    re   = requests.get(url)
+    url = "https://forum.gamer.com.tw/B.php?bsn=27487"
+    ua = UserAgent().edge
+    re   = requests.get(url, headers={'user-agent': ua})
 
     content = ""
 
     soup = BeautifulSoup(re.text, "html.parser")
-    data = soup.find_all("a", {"class": "_1Zdp"})
+    data = soup.find_all("div", {"class": "b-list__tile"})
     
-    for index, d in enumerate(data):
-        if index <8:
-            title = d.text
-            href  = base + d.get("href")
-            content += "{}\n{}\n".format(title, href)
-        else:
-            break
-        
+    for d in data:
+        if (d.p != None):
+            title = d.p.text
+            content += "{}\n".format(title)
+    content += url    
     return content
+
+print(news_crawler())
