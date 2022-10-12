@@ -25,4 +25,4 @@ def GoogleNews_crawler():
             break
     return content
 
-print(GoogleNews_crawler())
+# print(GoogleNews_crawler())

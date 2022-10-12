@@ -22,4 +22,4 @@ def MoneyNews_crawler():
             break
     return contents
 
-print(MoneyNews_crawler())
+# print(MoneyNews_crawler())
