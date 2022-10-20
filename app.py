@@ -11,7 +11,6 @@ from linebot.models import *
 from googleNews import *
 from moneyNews import *
 from music import *
-from bbc import *
 
 app = Flask(__name__)
 # Channel Access Token
@@ -45,7 +44,6 @@ def handle_message(event):
     a = GoogleNews_crawler()
     b = MoneyNews_crawler()
     c = Music_crawler()
-    d = BBC_crawler()
     message = event.message.text
 
     # reply_token 只能用一次，用完一次就丟
@@ -55,8 +53,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=b))
     elif "音樂" in message:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=c))
-    elif "外國新聞" in message:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=d))
     else:
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text=message))
