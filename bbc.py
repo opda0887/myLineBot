@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def Cnn_crawler():
+def BBC_crawler():
     url = "https://www.bbc.com/news/world"
     baseurl = "https://www.bbc.com{}"
 
