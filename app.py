@@ -55,7 +55,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=b))
     elif "音樂" in message:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=c))
-    elif "bbc" or "BBC" in message:
+    elif "BBC" in message:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=d))
     else:
         line_bot_api.reply_message(
